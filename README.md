@@ -39,6 +39,31 @@ yarn
 yarn next
 ```
 
+### Architecture
+
+Single server - multiple agents.
+
+TODO say more
+
+### Codebase overview
+
+- `src/Core.hs`  
+  Domain types (`Build`, `Pipeline` etc.) along with main state machine (`progress`)
+- `src/Docker.hs`  
+  Talks to Docker api
+- `src/Runner.hs`  
+  Runs a single build, collecting logs (`Core.collectLogs`) and processing state updates (`Core.progress`)
+- `src/JobHandler.hs`  
+  Introduces `Job` type, which is just a `Build` that can be _queued_ and _scheduled_
+- `src/JobHandler/Memory.hs`  
+  An in-memory implementation of `JobHandler`, built on top of STM
+- `src/Github.hs`  
+  Talks to Github api
+- `src/Agent.hs`  
+  Agents ask the server for work to do, run builds (`Runner`) and send updates back to the server
+- `src/Server.hs`  
+  The server collects job to be run (when receiving webhook events). It keeps an internal job queue (`JobHandler`) exposed as an http api (used by web ui)
+
 ### Why?
 
 TODO expand on this
