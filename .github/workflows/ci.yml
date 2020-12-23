@@ -26,7 +26,9 @@ jobs:
         with:
           path: ~/.stack
           key: ${{ runner.os }}-store-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('package.yaml') }}
-      - name: build
+      - name: Install record-dot-preprocessor
+        run: stack install record-dot-preprocessor
+      - name: Build
         run: stack build --system-ghc
-      - name: test
+      - name: Test
         run: stack test --system-ghc
