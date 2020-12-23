@@ -63,6 +63,10 @@ TODO say more
   Agents ask the server for work to do, run builds (`Runner`) and send updates back to the server
 - `src/Server.hs`  
   The server collects job to be run (when receiving webhook events). It keeps an internal job queue (`JobHandler`) exposed as an http api (used by web ui)
+- `src/Cli.hs`  
+  Main entrypoint. Calls either `Server.run` or `Agent.run`
+- `src/Socket.hs`  
+  Low-level code to send http requests to a socket. Not interesting, can be ignored.
 
 ### Why?
 
