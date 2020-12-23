@@ -1,0 +1,11 @@
+steps:
+  - name: clone
+    image: alpine/git:v2.26.2
+    commands:
+      - git clone https://github.com/left-pad/left-pad/ --depth=1 .
+
+  - name: test
+    image: node:15.4.0-alpine
+    commands:
+      - npm install
+      - npm test

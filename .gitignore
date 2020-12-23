@@ -1,0 +1,9 @@
+.stack-work/
+*.cabal
+*~
+.DS_Store
+quad.db
+fresh/
+part-one-finished/
+build/*pdf
+build/*html

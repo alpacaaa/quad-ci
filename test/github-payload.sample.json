@@ -1,0 +1,15 @@
+{
+  "ref": "refs/heads/master",
+  "repository": {
+    "id": 322600997,
+    "name": "quad-sample-pipeline",
+    "full_name": "alpacaaa/quad-sample-pipeline"
+  },
+  "head_commit": {
+    "id": "aaea32ba2f97ba009f7504b9983155336385a2f4",
+    "message": "Trigger webhook.",
+    "author": {
+      "username": "alpacaaa"
+    }
+  }
+}
