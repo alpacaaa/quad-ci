@@ -14,13 +14,14 @@ Quad CI is a _simple_ Continuous Integration system written in Haskell.
 ### Getting Started
 
 ```bash
-stack build
+# Needed for RecordDotSyntax
+$ stack install record-dot-preprocessor
 
 # Run server
-stack run -- start-server
+$ stack run -- start-server
 
 # Run agent
-stack run -- start-agent
+$ stack run -- start-agent
 ```
 
 Try running a simple build:
@@ -42,6 +43,12 @@ yarn next
 ### Architecture
 
 Single server - multiple agents.
+
+Builds share workspace.
+
+STM queue
+
+1 build/agent concurrency limit
 
 TODO say more
 
@@ -77,3 +84,5 @@ An approachable codebase at just 1000 lines of Haskell code.
 Real world example of Haskell application.
 
 Show what Simple Haskell looks like.
+
+RecordDotSytax is cool, great alternative to lens for most cases.
