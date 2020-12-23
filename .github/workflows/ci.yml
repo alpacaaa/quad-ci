@@ -21,7 +21,7 @@ jobs:
           ghc-version: "8.8.3"
           enable-stack: true
           stack-version: "latest"
-      - uses: actions/cache@v2.1.3
+      - uses: actions/cache@v2
         name: Cache ~/.stack
         with:
           path: ~/.stack
@@ -29,6 +29,6 @@ jobs:
       - name: Install record-dot-preprocessor
         run: stack install record-dot-preprocessor
       - name: Build
-        run: stack build --system-ghc
+        run: stack build
       - name: Test
-        run: stack test --system-ghc
+        run: stack test
