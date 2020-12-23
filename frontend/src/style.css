@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-gray-200;
+}
+
+.build-details a {
+  @apply text-blue-500;
+  @apply rounded;
+  @apply p-1;
+  @apply bg-blue-100;
+}
+
+.status-running > svg {
+  animation: spin 3.3333s linear infinite;
+}
+.status-pending > svg {
+  animation: wrench 2.5s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes wrench {
+  0% {
+    transform: rotate(-12deg);
+  }
+  8% {
+    transform: rotate(12deg);
+  }
+  10% {
+    transform: rotate(24deg);
+  }
+  18% {
+    transform: rotate(-24deg);
+  }
+  20% {
+    transform: rotate(-24deg);
+  }
+  28% {
+    transform: rotate(24deg);
+  }
+  30% {
+    transform: rotate(24deg);
+  }
+  38% {
+    transform: rotate(-24deg);
+  }
+  40% {
+    transform: rotate(-24deg);
+  }
+  48% {
+    transform: rotate(24deg);
+  }
+  50% {
+    transform: rotate(24deg);
+  }
+  58% {
+    transform: rotate(-24deg);
+  }
+  60% {
+    transform: rotate(-24deg);
+  }
+  68% {
+    transform: rotate(24deg);
+  }
+  75%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.ansi-black-fg {
+  color: #3a3a3a;
+}
+.ansi-red-fg {
+  color: #dd948e;
+}
+.ansi-green-fg {
+  color: #b6d1aa;
+}
+.ansi-yellow-fg {
+  color: #f3d57c;
+}
+.ansi-blue-fg {
+  color: #8aa9d5;
+}
+.ansi-magenta-fg {
+  color: #cbafd5;
+}
+.ansi-cyan-fg {
+  color: #9ad1d4;
+}
+.ansi-white-fg {
+  color: #efefef;
+}
+.ansi-bright-black-fg {
+  color: #5e5d5e;
+}
+.ansi-bright-red-fg {
+  color: #e69b94;
+}
+.ansi-bright-green-fg {
+  color: #d1f0c3;
+}
+.ansi-bright-yellow-fg {
+  color: #f4d799;
+}
+.ansi-bright-blue-fg {
+  color: #a6cbfe;
+}
+.ansi-bright-magenta-fg {
+  color: #e7c7f2;
+}
+.ansi-bright-cyan-fg {
+  color: #b0f0f5;
+}
+.ansi-bright-white-fg {
+  color: #fff;
+}
+
+.ansi-black-bg {
+  background-color: #3a3a3a;
+}
+.ansi-red-bg {
+  background-color: #dd948e;
+}
+.ansi-green-bg {
+  background-color: #b6d1aa;
+}
+.ansi-yellow-bg {
+  background-color: #f3d57c;
+}
+.ansi-blue-bg {
+  background-color: #8aa9d5;
+}
+.ansi-magenta-bg {
+  background-color: #cbafd5;
+}
+.ansi-cyan-bg {
+  background-color: #9ad1d4;
+}
+.ansi-white-bg {
+  background-color: #efefef;
+}
+.ansi-bright-black-bg {
+  background-color: #5e5d5e;
+}
+.ansi-bright-red-bg {
+  background-color: #e69b94;
+}
+.ansi-bright-green-bg {
+  background-color: #d1f0c3;
+}
+.ansi-bright-yellow-bg {
+  background-color: #f4d799;
+}
+.ansi-bright-blue-bg {
+  background-color: #a6cbfe;
+}
+.ansi-bright-magenta-bg {
+  background-color: #e7c7f2;
+}
+.ansi-bright-cyan-bg {
+  background-color: #b0f0f5;
+}
+.ansi-bright-white-bg {
+  background-color: #fff;
+}
+
+.output {
+  color: #fff;
+  font-size: 12px;
+  font-family: Menlo, Courier, monospace;
+  font-weight: 300;
+  box-shadow: 0px 0px 8px 1px #e8eaed;
+  box-sizing: border-box;
+}
+
+.output-lines {
+  width: 100%;
+  line-height: 19px;
+  font-variant-ligatures: none;
+}
+.ol-pos {
+  color: #8c96a1;
+  user-select: none;
+  white-space: nowrap;
+  width: 1px;
+  padding: 0 10px 0 15px;
+}
+.ol-html {
+  word-break: break-word;
+  white-space: pre-wrap;
+  padding-right: 15px;
+}
