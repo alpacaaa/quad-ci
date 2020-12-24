@@ -47,7 +47,11 @@ run config handler =
             { steps = NonEmpty.cons step pipeline.steps
             }
 
-      Scotty.json $ Core.buildNumberToInt number
+      Scotty.json $
+        Aeson.object
+          [ ("number", Aeson.toJSON $ Core.buildNumberToInt number),
+            ("status", "job queued")
+          ]
 
     Scotty.get "/build/:number" do
       number <- BuildNumber <$> Scotty.param "number"

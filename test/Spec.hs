@@ -11,6 +11,7 @@ import qualified JobHandler.Memory
 import qualified Network.HTTP.Simple as HTTP
 import RIO
 import qualified RIO.ByteString as ByteString
+import qualified RIO.HashMap as HashMap
 import qualified RIO.Map as Map
 import qualified RIO.NonEmpty.Partial as NonEmpty.Partial
 import qualified RIO.Set as Set
@@ -161,7 +162,9 @@ testWebhookTrigger =
             & HTTP.setRequestBodyFile "test/github-payload.sample.json"
 
     res <- HTTP.httpBS req
-    let Right (Aeson.Number number) = Aeson.eitherDecodeStrict $ HTTP.getResponseBody res
+
+    let Right (Aeson.Object build) = Aeson.eitherDecodeStrict $ HTTP.getResponseBody res
+    let Just (Aeson.Number number) = HashMap.lookup "number" build
 
     checkBuild handler $ Core.BuildNumber (round number)
 
