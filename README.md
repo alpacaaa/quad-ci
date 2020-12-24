@@ -1,13 +1,15 @@
 # Quad CI
 
-Quad CI is a _simple_ Continuous Integration system written in Haskell.
+Quad CI is a _simple_, _tiny_ and _beginner friendly_ Continuous Integration system written in Haskell.
 
 ### Features
 
 - sandboxed builds in docker containers
-- a multi-node architecture with agents picking up jobs to work on
-- an http api to interact with the frontend and other nodes
+- multi-node architecture with agents picking up jobs to work on
+- http api to interact with the frontend and other nodes
 - support for triggering builds with github webhooks
+
+All in 1K lines of code!
 
 ![Build detail](screenshot.jpg)
 
@@ -40,6 +42,18 @@ yarn
 yarn next
 ```
 
+### Why?
+
+TODO expand on this
+
+An approachable codebase at just 1000 lines of Haskell code.
+
+Real world example of Haskell application.
+
+Show what Simple Haskell looks like.
+
+RecordDotSytax is cool, great alternative to lens for most cases.
+
 ### Architecture
 
 Single server - multiple agents.
@@ -54,35 +68,32 @@ TODO say more
 
 ### Codebase overview
 
-- `src/Core.hs`  
-  Domain types (`Build`, `Pipeline` etc.) along with main state machine (`progress`)
-- `src/Docker.hs`  
-  Talks to Docker api
-- `src/Runner.hs`  
-  Runs a single build, collecting logs (`Core.collectLogs`) and processing state updates (`Core.progress`)
-- `src/JobHandler.hs`  
-  Introduces `Job` type, which is just a `Build` that can be _queued_ and _scheduled_
-- `src/JobHandler/Memory.hs`  
-  An in-memory implementation of `JobHandler`, built on top of STM
-- `src/Github.hs`  
-  Talks to Github api
-- `src/Agent.hs`  
-  Agents ask the server for work to do, run builds (`Runner`) and send updates back to the server
-- `src/Server.hs`  
-  The server collects job to be run (when receiving webhook events). It keeps an internal job queue (`JobHandler`) exposed as an http api (used by web ui)
-- `src/Cli.hs`  
-  Main entrypoint. Calls either `Server.run` or `Agent.run`
-- `src/Socket.hs`  
-  Low-level code to send http requests to a socket. Not interesting, can be ignored.
+_`src/Core.hs`_  
+Domain types (`Build`, `Pipeline` etc.) along with main state machine (`progress`)
 
-### Why?
+_`src/Docker.hs`_  
+Talks to Docker api
 
-TODO expand on this
+_`src/Runner.hs`_  
+Runs a single build, collecting logs (`Core.collectLogs`) and processing state updates (`Core.progress`)
 
-An approachable codebase at just 1000 lines of Haskell code.
+_`src/JobHandler.hs`_  
+Introduces `Job` type, which is just a `Build` that can be _queued_ and _scheduled_
 
-Real world example of Haskell application.
+_`src/JobHandler/Memory.hs`_  
+An in-memory implementation of `JobHandler`, built on top of STM
 
-Show what Simple Haskell looks like.
+_`src/Github.hs`_  
+Talks to Github api
 
-RecordDotSytax is cool, great alternative to lens for most cases.
+_`src/Agent.hs`_  
+Agents ask the server for work to do, run builds (`Runner`) and send updates back to the server
+
+_`src/Server.hs`_  
+The server collects jobs to be run (when receiving webhook events). It keeps an internal job queue (`JobHandler`) exposed as an http api (used by web ui)
+
+_`src/Cli.hs`_  
+Main entrypoint. Calls either `Server.run` or `Agent.run`
+
+_`src/Socket.hs`_  
+Low-level code to send http requests to a socket. Not interesting, can be ignored.
