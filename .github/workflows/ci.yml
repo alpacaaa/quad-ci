@@ -24,10 +24,13 @@ jobs:
       - uses: actions/cache@v2
         name: Cache ~/.stack
         with:
-          path: ~/.stack
+          path: |
+            ~/.stack
+            ~/.local/bin/record-dot-preprocessor
           key: ${{ runner.os }}-store-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('package.yaml') }}
       - name: Install record-dot-preprocessor
-        run: stack install record-dot-preprocessor
+        run: |
+          [ ! -f ~/.local/bin/record-dot-preprocessor ] && stack install record-dot-preprocessor
       - name: Build
         run: stack build
       - name: Test
