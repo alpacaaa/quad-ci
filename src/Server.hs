@@ -94,7 +94,7 @@ jobToJson number job =
     steps =
       job.pipeline.steps <&> \step ->
         Aeson.object
-          [ ("name", Aeson.String $ stepNameToText step.name),
+          [ ("name", Aeson.String $ Core.stepNameToText step.name),
             ( "state",
               Aeson.String $ case build of
                 Just b -> stepStateToText b step
