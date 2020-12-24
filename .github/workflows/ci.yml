@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-store-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('package.yaml') }}
       - name: Install record-dot-preprocessor
         run: |
-          [ ! -f ~/.local/bin/record-dot-preprocessor ] && stack install record-dot-preprocessor
+          if [ ! -f ~/.local/bin/record-dot-preprocessor ]; then stack install record-dot-preprocessor; fi
       - name: Build
         run: stack build
       - name: Test
