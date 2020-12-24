@@ -1,5 +1,7 @@
 # Quad CI
 
+![Build Status][]
+
 Quad CI is a _simple_, _tiny_ and _beginner friendly_ Continuous Integration system written in Haskell.
 
 ### Features
@@ -97,3 +99,5 @@ Main entrypoint. Calls either `Server.run` or `Agent.run`
 
 _`src/Socket.hs`_  
 Low-level code to send http requests to a socket. Not interesting, can be ignored.
+
+[build status]: https://github.com/alpacaaa/quad-ci/workflows/ci/badge.svg
