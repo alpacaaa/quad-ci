@@ -31,7 +31,7 @@ $ stack run -- start-agent
 Try running a simple build:
 
 ```bash
-$ curl -X POST -H "Content-Type: application/json" -d
+$ curl -X POST -H "Content-Type: application/json" -d \
 @test/github-payload.sample.json "http://localhost:9000/webhook/github"
 
 ```
