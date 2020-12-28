@@ -10,6 +10,7 @@ import qualified Network.Wai.Middleware.Cors as Cors
 import RIO
 import qualified RIO.Map as Map
 import qualified RIO.NonEmpty as NonEmpty
+import qualified System.Log.Logger as Logger
 import qualified Web.Scotty as Scotty
 
 data Config = Config
@@ -42,10 +43,13 @@ run config handler =
         info <- Github.parsePushEvent (toStrictBytes body)
         pipeline <- Github.fetchRemotePipeline info
         let step = Github.createCloneStep info
-        handler.queueJob info $
-          pipeline
-            { steps = NonEmpty.cons step pipeline.steps
-            }
+        number <-
+          handler.queueJob info $
+            pipeline
+              { steps = NonEmpty.cons step pipeline.steps
+              }
+        Logger.infoM "quad.server" $ "Queued job " <> Core.displayBuildNumber number
+        pure number
 
       Scotty.json $
         Aeson.object

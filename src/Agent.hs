@@ -49,13 +49,13 @@ runCommand config runner = \case
                 sendMessage config $ BuildUpdated number build
             }
 
-    let n = show $ Core.buildNumberToInt number
-    Logger.infoM "quad.agent" $ "Starting build #" <> n
+    let n = Core.displayBuildNumber number
+    Logger.infoM "quad.agent" $ "Starting build " <> n
 
     build <- runner.prepareBuild pipeline
     void $ runner.runBuild hooks build
 
-    Logger.infoM "quad.agent" $ "Finished build #" <> n
+    Logger.infoM "quad.agent" $ "Finished build " <> n
 
 sendMessage :: Config -> Msg -> IO ()
 sendMessage config msg = do
