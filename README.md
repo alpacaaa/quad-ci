@@ -13,7 +13,7 @@ Quad CI is a _simple_, _tiny_ and _beginner friendly_ Continuous Integration sys
 
 All in 1K lines of code!
 
-![Build detail](screenshot.jpg)
+![Build detail](frontend/images/screenshot.jpg)
 
 ### Getting Started
 
@@ -46,17 +46,17 @@ yarn next
 
 ### Why?
 
-TODO expand on this
+This project tries to answer the question: _How do I build an application with Haskell?_
 
-An approachable codebase at just 1000 lines of Haskell code.
+Intermediate level _practical_ resources on Haskell are notoriously hard to find. My goal is to provide a real world example of an Haskell application, while keeping the scope small (Quad CI is only 1000 lines of code, including tests).
 
-Real world example of Haskell application.
+Another goal is to showcase [Simple Haskell](https://www.simplehaskell.org/) (or at least my own interpretation of it).
 
-Show what Simple Haskell looks like.
-
-RecordDotSytax is cool, great alternative to lens for most cases.
+Finally, I think `RecordDotSytax` is one of the coolest things that happened in Haskell land recently and I wanted to show how to use it in practice.
 
 ### Architecture
+
+![Architecture](frontend/images/architecture.png)
 
 Single server - multiple agents.
 
