@@ -60,8 +60,6 @@ Finally, I think `RecordDotSytax` is one of the coolest things that happened in 
 
 ### Architecture
 
-![Architecture](frontend/images/architecture.png)
-
 Single server - multiple agents.
 
 Builds share workspace.
