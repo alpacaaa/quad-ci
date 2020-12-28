@@ -13,7 +13,11 @@ Quad CI is a _simple_, _tiny_ and _beginner friendly_ Continuous Integration sys
 
 All in 1K lines of code!
 
-![Build detail](frontend/images/screenshot.jpg)
+![Screenshot](https://www.dropbox.com/s/x9zujrrgrndn5xz/preview.jpg?raw=1)
+
+#### 📼 Watch the [Intro video](https://www.dropbox.com/s/k5drxinaq6hjnct/quad-ci-intro.mp4?raw=1) (~2 minutes).
+
+---
 
 ### Getting Started
 
