@@ -1,13 +1,7 @@
+import { State } from "@/api.ts";
+
 type StatusIconProps = {
-  status:
-    | "queued"
-    | "assigned"
-    | "ready"
-    | "running"
-    | "succeeded"
-    | "failed"
-    | "unexpectedstate"
-    | "skipped";
+  status: State;
 };
 
 export const StatusIcon = (props: StatusIconProps) => {

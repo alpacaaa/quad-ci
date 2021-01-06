@@ -6,7 +6,11 @@ import * as Api from "@/api.ts";
 
 export default () => {
   const base = Api.endpoint + "/build";
-  const { data, error } = useSWR(base, Api.fetchJson, Api.refresh);
+  const { data, error } = useSWR<Array<Api.Job>>(
+    base,
+    Api.fetchJson,
+    Api.refresh
+  );
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;
@@ -14,7 +18,7 @@ export default () => {
   return (
     <main>
       <ul>
-        {data.map((job: any) => {
+        {data.map((job) => {
           return (
             <li className="mb-5" key={job.number}>
               <Card>

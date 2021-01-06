@@ -16,11 +16,15 @@ export default () => {
 
   const refresh = { refreshInterval: 1000 };
   const base = Api.endpoint + "/build/" + number;
-  const { data, error } = useSWR(number ? base : null, Api.fetchJson, refresh);
+  const { data, error } = useSWR<Api.Job>(
+    number ? base : null,
+    Api.fetchJson,
+    refresh
+  );
 
   const [selectedStep, setSelectedStep] = React.useState(0);
 
-  let currentStep: any = null;
+  let currentStep: Api.Step | null = null;
   if (data && data.steps && data.steps[selectedStep]) {
     currentStep = data.steps[selectedStep];
   }
@@ -44,14 +48,14 @@ export default () => {
 
       <div className="grid grid-cols-12 gap-4 mt-6">
         <div className="col-span-4">
-          {data.steps.map((step: any, index: number) => {
+          {data.steps.map((step, index: number) => {
             return (
               <a
                 key={step.name}
                 href="#"
                 onClick={() => setSelectedStep(index)}
               >
-                <Card state={step.name === currentStep.name ? "selected" : ""}>
+                <Card state={step.name === currentStep?.name ? "selected" : ""}>
                   <div className="flex">
                     <StatusIcon status={step.state} />
                     <div className="ml-2">{step.name}</div>
@@ -63,15 +67,17 @@ export default () => {
         </div>
         <section className="output col-span-8 bg-blue-900 rounded py-4">
           {logs && showLogs(logs)}
-          {!logs && stepWaitMsg(currentStep)}
+          {!logs &&
+            currentStep?.state &&
+            showLogs(stepWaitMsg(currentStep.state))}
         </section>
       </div>
     </main>
   );
 };
 
-const stepWaitMsg = (step: any) => {
-  switch (step.status) {
+const stepWaitMsg = (state: Api.State) => {
+  switch (state) {
     case "queued":
     case "assigned":
     case "ready":

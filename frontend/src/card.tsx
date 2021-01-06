@@ -1,7 +1,8 @@
 import React from "react";
 import { StatusIcon } from "@/icon.tsx";
+import { Job } from "@/api.ts";
 
-export const Card = (props: any) => {
+export const Card = (props: React.PropsWithChildren<{ state?: string }>) => {
   return (
     <div
       className={`bg-white ${
@@ -13,7 +14,7 @@ export const Card = (props: any) => {
   );
 };
 
-export const BuildInfo = ({ job }: any) => (
+export const BuildInfo = ({ job }: { job: Job }) => (
   <>
     <div className="flex">
       <StatusIcon status={job.state} />
