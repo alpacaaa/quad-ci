@@ -19,6 +19,15 @@ All in 1K lines of code!
 
 ---
 
+
+<img src="https://marcosampellegrini.com/book-cover.png" width="100" align="left">
+
+### Check out the [Simple Haskell Handbook](https://marcosampellegrini.com/simple-haskell-book) where we start from **zero lines of code** and build Quad CI _from scratch_!
+
+<br clear="left"/>
+
+---
+
 ### Getting Started
 
 ```bash
@@ -68,7 +77,6 @@ STM queue
 
 1 build/agent concurrency limit
 
-TODO say more
 
 ### Codebase overview
 
@@ -101,5 +109,9 @@ Main entrypoint. Calls either `Server.run` or `Agent.run`
 
 _`src/Socket.hs`_  
 Low-level code to send http requests to a socket. Not interesting, can be ignored.
+
+---
+
+For a full overview of the codebase, check out the [Simple Haskell Handbook](https://marcosampellegrini.com/simple-haskell-book) where we start from **zero lines of code** and build Quad CI _from scratch_!
 
 [build status]: https://github.com/alpacaaa/quad-ci/workflows/ci/badge.svg
