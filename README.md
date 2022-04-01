@@ -31,9 +31,6 @@ All in 1K lines of code!
 ### Getting Started
 
 ```bash
-# Needed for RecordDotSyntax
-$ stack install record-dot-preprocessor
-
 # Run server
 $ stack run -- start-server
 

@@ -1,2 +1,2 @@
-resolver: lts-17.10
+resolver: lts-19.1
 packages: [.]

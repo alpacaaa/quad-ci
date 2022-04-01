@@ -29,9 +29,6 @@ dependencies:
   - wai-cors
   - yaml
 
-ghc-options:
-  - -F -pgmF=record-dot-preprocessor
-
 library:
   source-dirs: src
 

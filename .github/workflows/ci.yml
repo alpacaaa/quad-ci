@@ -18,19 +18,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: haskell/actions/setup@v1
         with:
-          ghc-version: "8.10.4"
+          ghc-version: "9.0.1"
           enable-stack: true
           stack-version: "latest"
-      - uses: actions/cache@v2
-        name: Cache ~/.stack
-        with:
-          path: |
-            ~/.stack
-            ~/.local/bin/record-dot-preprocessor
-          key: ${{ runner.os }}-store-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('package.yaml') }}
-      - name: Install record-dot-preprocessor
-        run: |
-          if [ ! -f ~/.local/bin/record-dot-preprocessor ]; then stack install record-dot-preprocessor; fi
       - name: Build
         run: stack build
       - name: Test
