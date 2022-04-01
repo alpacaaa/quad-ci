@@ -1,2 +1,4 @@
 resolver: lts-19.1
+compiler: ghc-9.2.1
+compiler-check: match-exact
 packages: [.]
